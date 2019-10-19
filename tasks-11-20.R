@@ -95,7 +95,17 @@ x%*%solve(x) #ZAPYTAJ
 install.packages("MASS")
 library(MASS)
 z <- birthwt$ftv
-z <- factor(z)
 z <- factor(z, levels = c(0, 1, "2 or more"))
-z
-levels(z)
+z # ZAPYTAJ O NA
+
+# Zadanie 20
+# Check which variables in the Cars93 dataset (US car sales in 1993) from the MASS package are
+# factors. Moreover, calculate the number of cars for the place of origin (variable Origin) and type of
+# car (variable Type) in the form of a table.
+install.packages("MASS")
+library(MASS)
+sapply(Cars93, is.factor)
+origin <- Cars93$Origin
+type <- Cars93$Type
+table(origin,type)
+
