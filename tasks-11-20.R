@@ -57,7 +57,7 @@ my_list1
 # Create a vector of squares of the first 100 natural numbers. Then count which numbers and how
 # often they appear in the unity position in subsequent elements of this vector.
 x <- c(rep(1:100)^2)
-x
+x # ZAPYTAJ!
 
 # Zadanie 17
 # Use the outer() function to calculate the multiplication table for numbers smaller than 6.
@@ -70,7 +70,32 @@ outer(1:6,1:6,"*")
 # |2 0 5|
 # |1 2 1|
 # Moreover, multiply this matrix by its inverse.
+install.packages("Matrix")
+install.packages("matlib")
+library(Matrix)
+library(matlib)
 x <- matrix(c(1,2,1,5,0,2,3,5,1), nrow=3, ncol = 3)
 x
-rank(x)
-determinant(x)
+rankMatrix(x)
+det(x)
+solve(x) #inverse
+e <- eigen(x) #eigenvalues
+e$vectors #eigenvectors
+rowSums(x)
+rowMeans(x)
+colSums(x)
+colMeans(x)
+
+x%*%solve(x) #ZAPYTAJ
+
+# Zadanie 19
+# In the dataset birthwt from the package MASS, the variable ftv contains the number of visits of
+# mothers to the doctor in the first trimester of pregnancy. Transform it to a factor of three levels 0, 1
+# and “2 or more” (use the functions factor() and levels()).
+install.packages("MASS")
+library(MASS)
+z <- birthwt$ftv
+z <- factor(z)
+z <- factor(z, levels = c(0, 1, "2 or more"))
+z
+levels(z)
