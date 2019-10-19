@@ -89,4 +89,8 @@ quantilesOfOrders
 # Zadanie 10
 # The schoolmath package contains the primlist data set, which contains prime numbers between
 # 1 and 9999999.
-install.packages("schoolmath")
+library(schoolmath)
+n <- schoolmath::primes(0,1000)
+n
+m <- length(schoolmath::primes(100,500))
+m
