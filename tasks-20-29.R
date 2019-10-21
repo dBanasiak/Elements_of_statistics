@@ -111,7 +111,7 @@ binomTest()
 
 # Zadanie 26
 # Write a function that checks if the vector is a palindrome.
-vec <- c(1,3,4,5,4,3,1)
+vec <- c(1,3,4,4,3,1)
 isPalindrme <- function(x){
   palindromeCheck <- 0
   for(i in 0:floor(length(x)/2)){
