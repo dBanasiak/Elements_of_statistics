@@ -99,8 +99,8 @@ forLoop(vec)
 binomTest <- function() {
   temp <- 0
   for(r in 1:100) {
-    for(n in i:100) {
-      if(choose(n,r)<1000000) {
+    for(n in r:100) {
+      if(choose(n,r)>1000000) {
         temp <- temp + 1
       }
     }
@@ -108,3 +108,20 @@ binomTest <- function() {
   return(temp)
 }
 binomTest()
+
+# Zadanie 26
+# Write a function that checks if the vector is a palindrome.
+vec <- c(1,3,4,5,4,3,1)
+isPalindrme <- function(x){
+  palindromeCheck <- 0
+  for(i in 0:floor(length(x)/2)){
+    if(x[i+1] == x[floor(length(x))-i] & i<floor((length(x)/2))) {
+      palindromeCheck <- palindromeCheck + 1
+    }
+  }
+  if(palindromeCheck == floor(length(x)/2)) {
+    return(TRUE)
+  }
+  return(FALSE)
+}
+isPalindrme(vec)
