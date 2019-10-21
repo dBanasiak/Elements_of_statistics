@@ -40,3 +40,56 @@ Temperature$NY_Fahrenheit <- NULL
 Temperature
 # 5) Save the obtained data set in the file NY_temp.RData
 save(Temperature, file="data/NY_temp.RData")
+
+# Zadanie 23
+# Write a function that converts an angle measure in degrees to radians. Check this function for angles
+# of 0∘,30∘,45∘,60∘,90∘. Then prepare a data frame in which the values of the sine, cosine, tangent
+# and cotangent functions for angles with such measures will be collected.
+angels <- c(0,30,45,60,90)
+deg <- round((angels*pi/180), digits = 3)
+cosinus <- cos(deg)
+sinus <- sin(deg)
+tang <-tan(deg)
+ctg <- 1/tang
+ctg
+frame_angels <- data.frame(rep(1:5), sin = sinus, cos=cosinus, tan = tang, ctg = ctg)
+frame_angels
+
+# Zadanie 24
+# Calculate the product of elements of any vector x using the while, repeat and for loops (each
+# separately).
+vec <- rep(1:5)
+whileLoop <- function(x) {
+  temp <- 1
+  iterator <- 1
+  while(iterator <= length(x)){
+    temp <- temp * x[iterator] 
+    iterator <- iterator + 1
+  }
+  return(temp)
+}
+whileLoop(vec)
+
+repeatLoop <- function(x) {
+  temp <- 1
+  iterator <- 1
+  repeat {
+    temp <- temp * x[iterator]
+    
+    if(iterator == length(x)){
+      return(temp)
+      break
+    }
+    iterator <- iterator + 1
+  }
+}
+repeatLoop(vec)
+
+forLoop <- function(x) {
+  temp <- 1
+  for(i in 1:length(x)) {
+    temp <- temp * x[i]
+  }
+  return(temp)
+}
+forLoop(vec)
