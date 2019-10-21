@@ -93,3 +93,18 @@ forLoop <- function(x) {
   return(temp)
 }
 forLoop(vec)
+
+# Zadanie 25
+# How many numbers (nr) are greater than a million for 1≤r≤n≤100?
+binomTest <- function() {
+  temp <- 0
+  for(r in 1:100) {
+    for(n in i:100) {
+      if(choose(n,r)<1000000) {
+        temp <- temp + 1
+      }
+    }
+  }
+  return(temp)
+}
+binomTest()
