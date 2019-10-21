@@ -125,3 +125,19 @@ isPalindrme <- function(x){
   return(FALSE)
 }
 isPalindrme(vec)
+
+# Zadanie 27
+# Write a function whose argument is a numeric vector and the result is a vector containing the
+# smallest three numbers and the largest three numbers in this vector. If the argument is less than
+# three numbers, the function should return an error message with the comment “too short argument”.
+findVectors <- function(x) {
+  if(length(x)<3){
+    return("Error in command 'extreme_3(x)': too short argument")
+  }
+  x <- sort(x)
+  newX <- c(x[1],x[2],x[3],x[length(x)-2],x[length(x)-1],x[length(x)])
+  return(newX)
+}
+vec <- c(2, 6, 1, 5, 7, 3, 4)
+findVectors(vec)
+
