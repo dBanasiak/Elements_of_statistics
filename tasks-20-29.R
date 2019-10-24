@@ -141,3 +141,4 @@ findVectors <- function(x) {
 vec <- c(2, 6, 1, 5, 7, 3, 4)
 findVectors(vec)
 
+# Zadanie 28

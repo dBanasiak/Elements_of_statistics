@@ -57,7 +57,8 @@ my_list1
 # Create a vector of squares of the first 100 natural numbers. Then count which numbers and how
 # often they appear in the unity position in subsequent elements of this vector.
 x <- c(rep(1:100)^2)
-x # ZAPYTAJ!
+x # ZAPYTAJ o pobieranie liczby dziesiątek!
+#Modulo
 
 # Zadanie 17
 # Use the outer() function to calculate the multiplication table for numbers smaller than 6.
@@ -78,7 +79,7 @@ x <- matrix(c(1,2,1,5,0,2,3,5,1), nrow=3, ncol = 3)
 x
 rankMatrix(x)
 det(x)
-solve(x) #inverse
+solve(x) #inverse - Zapytaj - inny wynik
 e <- eigen(x) #eigenvalues
 e$vectors #eigenvectors
 rowSums(x)
@@ -86,7 +87,7 @@ rowMeans(x)
 colSums(x)
 colMeans(x)
 
-x%*%solve(x) #ZAPYTAJ
+x%*%solve(x) #ZAPYTAJ - inny wynik
 
 # Zadanie 19
 # In the dataset birthwt from the package MASS, the variable ftv contains the number of visits of
@@ -95,7 +96,6 @@ x%*%solve(x) #ZAPYTAJ
 install.packages("MASS")
 library(MASS)
 z <- birthwt$ftv
-z <- factor(z, levels = c(0, 1, "2 or more"))
-z # ZAPYTAJ O NA
-
-
+z <- factor(z)
+levels(z)[c(3,4,5,6)] <- "2 or more"
+z
