@@ -106,3 +106,34 @@ coefficientOfVariation
 library(e1071)
 skewness(failures$V1)
 kurtosis(failures$V1)
+
+# 4. Write the function coefficient_of_variation(), which calculates the value of
+#    the coefficient of variation for the given vector of observations. The function should
+#    have two arguments:
+#    x - a vector containing data
+#    na.rm - a logical value (the default is FALSE), which indicates whether missing values
+#    (objects NA) are ignored.
+#
+#    The function returns the value of the coefficient of variation expressed as percentage.
+#    In addition, the function checks whether the vector x is a numeric vector. Otherwise, 
+#    an error will be returned with the following message: “argument is not numeric”. 
+#    Sample calls and function results are as follows:
+
+coefficient_of_variation <- function(x, na.rm=FALSE) {
+        if (length(x)) {
+                if (is.numeric(x)) {
+                        return(sd(x, na.rm = na.rm) / mean(x, na.rm = na.rm) * 100)
+                } else {
+                        return(errorCondition('argument is not numeric')) 
+                }
+        } else {
+                return(errorCondition('argument "x" is missing, with no default'))
+        }
+}
+
+x <- c(1, NA, 3)
+coefficient_of_variation(x)
+coefficient_of_variation(x, na.rm=TRUE)
+coefficient_of_variation()
+coefficient_of_variation(c("x", "y"))
+
