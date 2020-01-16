@@ -64,9 +64,45 @@ pie(table(telephone_exchange))
 mean(telephone_exchange$number)
 median(telephone_exchange$number)
 sd(telephone_exchange$number)
-sd(telephone_exchange$number) / mean(telephone_exchange$number) * 100
+coefficientOfVariation <- sd(telephone_exchange$number) / mean(telephone_exchange$number) * 100
 
 # 3.1 The variable in the file failures.txt describes the results of 50 measurements of failure-free 
 # operation time of a given device (in hours). Which type is this variable? What are its possible values?
-failures <- read.table("data/failures.txt", header = T)
+failures <- read.table("data/failures.txt")
 failures
+
+# 3.2 Present the empirical distribution of the failure-free operation time in the form of a table.
+frequency = table(cut(failures$V1, breaks = seq(0, 3500, 500)))
+
+fail_table <- cbind(frequency = frequency, percent =  prop.table(frequency))
+fail_table
+
+# 3.3 Illustrate the empirical distribution of the failure-free operation time using a histogram, 
+#     boxplot and stemplot. What are advantages and disadvantages of these charts?
+hist(failures$V1)$breaks
+# końcówka $breaks pokazuję nam breaks do zadania 3.2
+
+hist(failures$V1, 
+     xlab = "Failure-free operation time", 
+     main = "Empirical distribution of braking distance",
+     probability = TRUE, 
+     col = "lightblue")
+lines(density(failures$V1), col = "green", lwd = 2)
+
+boxplot(failures$V1, 
+        ylab = "Braking distance", 
+        main = "Empirical distribution of failure-free operation time")
+
+stem(failures$V1)
+
+# 3.4 Calculate the mean, median, standard deviation, coefficient of variation,
+#     skewness and kurtosis of the failure-free operation time.
+mean(failures$V1)
+median(failures$V1)
+sd(failures$V1)
+coefficientOfVariation <- sd(failures$V1) / mean(failures$V1) * 100
+coefficientOfVariation
+
+library(e1071)
+skewness(failures$V1)
+kurtosis(failures$V1)
