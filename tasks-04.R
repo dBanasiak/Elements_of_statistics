@@ -16,8 +16,6 @@ vari <- mean((brakes$V1 - mu_est)^2)
 
 ## 3 [1] 0.3621869
 # ZAPYTAJ O TO
-n <- length(brakes$V1)
-x <- brakes$V1
 
 #histogram
 hist(brakes$V1, 
@@ -102,3 +100,29 @@ sum(probs)
 
 # 3.0 The variable in the file failures.txt describes the results of 50 measurements of failure-free operation time of a given device (in hours).
 # 3.1 Suggest the theoretical distribution of the examined variable.
+# prawdopodobnie rozkład normalny
+failures <- read.table("data/failures.txt", dec = ",")
+failures
+
+# 3.2 Calculate the values of the MLE of the model parameter.
+## [1] 0.0009079683
+# Zapytaj o to
+curve(dnorm(x, mu_est, mle_est), 
+      add = TRUE, col = "blue", lwd = 2)
+
+# 3.3 Compare the empirical distribution of occurrence of individual values of the failure-free operation time in the sample with
+#     theoretical distribution.
+hist(failures$V1, 
+     xlab = "Braking distance", 
+     main = "Empirical distribution of failure-free operation time",
+     probability = TRUE, 
+     col = "lightgreen")
+lines(density(failures$V1), col = "red", lwd = 2)
+# TODO - theoretical distribution - ZAPYTAJ O TO
+
+# 3.4 Check the goodness-of-fit of the theoretical distribution based on the Q-Q plot.
+# 3.5 Based on the above considerations, does the theoretical distribution seem to be appropriate?
+# 3.6 Calculate the empirical and theoretical probability that the failure-free operation time is contained in the interval [1000, 1500].
+# 3.7 Calculate the confidence interval for the model parameter.
+# 3.8 Calculate the maximum likelihood estimator values and the confidence interval limits for the expected 
+#     value and variance of the theoretical distribution.
