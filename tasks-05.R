@@ -10,7 +10,7 @@ qqnorm(data_first, pch = 1, frame = FALSE, col="red")
 qqline(data_first, lwd = 2)
 
 ## [1] 868.7
-values <- t.test(data_first, mu = 870, alternative = "less")
+values <- t.test(data_first, mu = 870, alternative = "greater")
 values$estimate
 ## [1] 0.2136555
 values$p.value
@@ -72,7 +72,7 @@ mean(before)
 ## [1] 94.7
 mean(after)
 ## [1] 0.0003786878
-# ZAPYTAJ O TO
+t.test(before, after, alternative = 'less', paired = TRUE)$p.value
 
 # 4. The height of 13 men and 12 women in a sports center was examined. The results are as follows:
 #    men: 171, 176, 179, 189, 176, 182, 173, 179, 184, 186, 189, 167, 177,
@@ -82,7 +82,7 @@ men <- c(171, 176, 179, 189, 176, 182, 173, 179, 184, 186, 189, 167, 177)
 women <- c(161, 162, 163, 162, 166, 164, 168, 165, 168, 157, 161, 172)
 boxplot(men, women)
 ## [1] 0.8595396
-shapiro.test(men)$p.value
+shapiro.test(men)$p.value #p.value = 0.8595396 co jest większe od 0.05 - więc dalej w alternative daje greater
 qqnorm(men, pch=1, frame = F, col="red")
 qqline(men, lwd=2)
 ## [1] 0.9447828
