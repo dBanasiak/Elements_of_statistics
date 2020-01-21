@@ -298,3 +298,5 @@ pairwise.wilcox.test(data_table_1$value, data_table_1$name, data = data_table_1)
 # Dunn test
 library(FSA)
 dunnTest(data_table_1$value ~ data_table_1$name, data = data_table_1, method = "bh")
+
+# 2.0 TODO
